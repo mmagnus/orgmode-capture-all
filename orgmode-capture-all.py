@@ -4,14 +4,14 @@
 """
 import argparse
 import sys
+import datetime
+import os
 
 
 def get_parser():
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-
     #parser.add_argument('-', "--", help="", default="")
-
     parser.add_argument("-v", "--verbose",
                         action="store_true", help="be verbose")
     parser.add_argument("file", help="", default="") # nargs='+')
@@ -34,18 +34,18 @@ if __name__ == '__main__':
 
     t = open(args.file).read()
 
-    url, err = exe('cd /Users/magnus/workspace/PocketSnippets && osascript as.applescript')
+    url, err = exe('osascript /Users/magnus/workspace/SentInbox/as.applescript')
     #https://support.apple.com/en-gb/HT208050
-    print(url)
-
-    import os
+    if args.verbose: print(url)
 
     with open('/Users/magnus/geekbook/notes/inbox.org', 'a') as f:
-                                       #30 or full
-        f.write('* ' + t.split('\n')[0][:] + ' :senttoinbox:\n') # 30 of the first line
-        f.write(t + '\n')
-        f.write(url + '\n')
-        import datetime
+    # add to the begining of the file
+    #with open('/Users/magnus/geekbook/notes/work-curr.org', 'r+') as f:
+    #    content = f.read()
+    #    f.seek(0, 0)
+        f.write('* ' + t.split('\n')[0][:50] + ' :senttoinbox:\n') # 30 of the first line
+        f.write('\n'.join(t.split('\n')[:]))
+        f.write('\n' + url + '\n')
         x = datetime.datetime.now()
         f.write(x.strftime("[%Y-%m-%d %a %H:%M]\n"))
     
