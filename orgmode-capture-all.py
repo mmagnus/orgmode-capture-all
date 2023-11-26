@@ -34,10 +34,12 @@ if __name__ == '__main__':
 
     t = open(args.file).read()
 
+    #### SET PATH TO AS SCRIPT ###
     url, err = exe('osascript /Users/magnus/workspace/SentInbox/as.applescript')
     #https://support.apple.com/en-gb/HT208050
     if args.verbose: print(url)
 
+    #### SET PATH TO INBOX.ORG or whatever you call it ### 
     with open('/Users/magnus/geekbook/notes/inbox.org', 'a') as f:
     # add to the begining of the file
     #with open('/Users/magnus/geekbook/notes/work-curr.org', 'r+') as f:
