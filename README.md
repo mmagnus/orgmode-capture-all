@@ -8,5 +8,6 @@ Capture ALL (with a right click) to OrgMode Inbox
 - Find the workflow with File -> Open Recents -> aaaa to inbox.workflow
 - Edit Where and paths (change zsh shell to bash if required)
 
+![](f0.jpg)
 ![](f1.jpg)
 ![](f2.png)
