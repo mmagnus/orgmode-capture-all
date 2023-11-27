@@ -10,3 +10,9 @@ Capture ALL (with a right click) to OrgMode Inbox
 
 ![](f1.jpg)
 ![](f2.png)
+
+and in the Python sciprt change the path to your INBOX file:
+
+	PATH_TO_INBOX='/Users/magnus/geekbook/notes/inbox.org'
+
+

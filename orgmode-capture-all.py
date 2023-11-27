@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 """
+PATH_TO_INBOX='/Users/magnus/geekbook/notes/inbox.org'
+
 import argparse
 import sys
 import datetime
@@ -34,11 +36,14 @@ if __name__ == '__main__':
 
     t = open(args.file).read()
 
-    url, err = exe('osascript /Users/magnus/workspace/SentInbox/as.applescript')
+    import pathlib
+    path = pathlib.Path(__file__).parent.resolve() # to place where the script is
+
+    url, err = exe(f'osascript {path}/as.applescript')
     #https://support.apple.com/en-gb/HT208050
     if args.verbose: print(url)
 
-    with open('/Users/magnus/geekbook/notes/inbox.org', 'a') as f:
+    with open(PATH_TO_INBOX, 'a') as f:
     # add to the begining of the file
     #with open('/Users/magnus/geekbook/notes/work-curr.org', 'r+') as f:
     #    content = f.read()
