@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-"""
+#### SET PATH TO INBOX.ORG or whatever you call it ###
 PATH_TO_INBOX='/Users/magnus/geekbook/notes/inbox.org'
 
 import argparse
